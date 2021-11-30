@@ -1,1 +1,9 @@
 # WhiterockPoles
+
+For this project my group of 5 was tasked with converting the excel file (Streetlight and Traffic Signal sample data.xlsx) into a relational database using MySQL. The dataset was about inspections of specific poles found in the town of White Rock. These reports would include the data about the poles (type, material, etc.) as well as if they require repairs or standard maintenance. These reports would also include the date and the employee number of the person who did the report.
+
+We created a design together with emphasis on eliminating duplication and redundant data. As seen in the "Streetlight and Traffic Signal Database Design.pdf" file, we created a generic employee table along with more specific tables that connect together through a foreign key called "EMP_ID" as that way we can add specific information needed for certain employee types without adding unneeded empty fields to the employee types that don't need them. We did the same thing for poles as some poles can be traffic poles, streetlight poles or both.
+
+I was in charge of the implementation of the design. I made procedures for adding different employee types to the database that would add the details to both the employee and the specific employee type tables. I also created procedures for adding specific pole types in the same way. When a report is made, it should also update the information of the pole that is being reported on so I created a trigger that will automatically update some fields of the pole with the most recent report created. This is helpful for querying later as instead of reading through the reports to find out if a pole needs repairs, the user can just query using the poles last inspection date to get the most up to date report.
+
+At the end there is also some dummy values inserted into the database as a means of testing it to make sure that it works in the way it was intended.
